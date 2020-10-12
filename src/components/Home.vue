@@ -24,7 +24,11 @@
       <h2>Work Experience</h2>
       <div>
         <ul>
-          <li :class="{ expanded: conExpanded }" @click="expand(`con`)">
+          <li
+            v-if="expanded == 'con' || expanded == null"
+            :class="{ expanded: conExpanded }"
+            @click="expand(`con`)"
+          >
             <h3>2019, Full Stack Web Developer - Confetti</h3>
             <p>
               In this young startup I had the opportunity to work side by side
@@ -41,7 +45,11 @@
               <li>Building automated End-to-End tests using 'Mabl'</li>
             </ol>
           </li>
-          <li :class="{ expanded: mobExpanded }" @click="expand(`mob`)">
+          <li
+            v-if="expanded == 'mob' || expanded == null"
+            :class="{ expanded: mobExpanded }"
+            @click="expand(`mob`)"
+          >
             <h3>2018 ~ 2019, Android SDK Developer - Market Group/Mobfox</h3>
             <p>
               As a part of the R&D team I’ve contributed to the development of
@@ -63,7 +71,11 @@
               <li>Tier 3 technical support</li>
             </ol>
           </li>
-          <li :class="{ expanded: matExpanded }" @click="expand(`mat`)">
+          <li
+            v-if="expanded == 'mat' || expanded == null"
+            :class="{ expanded: matExpanded }"
+            @click="expand(`mat`)"
+          >
             <h3>
               2016 ~ 2018, Developers Tech Support (Tier 2) - Matomy Media Group
             </h3>
@@ -193,7 +205,8 @@ export default {
     return {
       conExpanded: false,
       mobExpanded: false,
-      matExpanded: false
+      matExpanded: false,
+      expanded: null
     };
   },
   methods: {
@@ -201,15 +214,30 @@ export default {
       switch (index) {
         case "con":
           this.conExpanded = !this.conExpanded;
+          if (this.expanded == null) {
+            this.expanded = "con";
+          } else {
+            this.expanded = null;
+          }
+
           break;
         case "mob":
           this.mobExpanded = !this.mobExpanded;
+          if (this.expanded == null) {
+            this.expanded = "mob";
+          } else {
+            this.expanded = null;
+          }
           break;
         case "mat":
           this.matExpanded = !this.matExpanded;
+          if (this.expanded == null) {
+            this.expanded = "mat";
+          } else {
+            this.expanded = null;
+          }
           break;
       }
-      this.expanded = !this.expanded;
     }
   }
 };
@@ -246,7 +274,7 @@ export default {
 
       &.expanded {
         height: auto;
-        max-height: 220px;
+        max-height: 230px;
       }
 
       h3 {
@@ -260,27 +288,13 @@ export default {
   }
 }
 
-.prog-lang {
-  .grid {
-    display: grid;
-    grid-template-columns: 25rem 25rem;
+.grid {
+  display: grid;
+  grid-template-columns: 350px 350px;
 
-    .col {
-      padding: 0px 50px;
-      margin-left: -3rem;
-    }
-  }
-}
-
-.skills {
-  .grid {
-    display: grid;
-    grid-template-columns: 25rem 25rem;
-
-    .col {
-      padding: 0px 50px;
-      margin-left: -3rem;
-    }
+  .col {
+    padding: 0px 50px;
+    margin-left: -40px;
   }
 }
 </style>
