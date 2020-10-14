@@ -22,12 +22,13 @@
     <hr />
     <section class="work-experience">
       <h2>Work Experience</h2>
-      <div>
-        <ul>
+      <ul>
+        <transition-group id="list-transition" name="list">
           <li
             v-if="expanded == 'con' || expanded == null"
             :class="{ expanded: conExpanded }"
             @click="expand(`con`)"
+            :key="`con`"
           >
             <h3>2019, Full Stack Web Developer - Confetti</h3>
             <p>
@@ -49,6 +50,7 @@
             v-if="expanded == 'mob' || expanded == null"
             :class="{ expanded: mobExpanded }"
             @click="expand(`mob`)"
+            :key="`mob`"
           >
             <h3>2018 ~ 2019, Android SDK Developer - Market Group/Mobfox</h3>
             <p>
@@ -75,6 +77,7 @@
             v-if="expanded == 'mat' || expanded == null"
             :class="{ expanded: matExpanded }"
             @click="expand(`mat`)"
+            :key="`mat`"
           >
             <h3>
               2016 ~ 2018, Developers Tech Support (Tier 2) - Matomy Media Group
@@ -101,8 +104,8 @@
               </li>
             </ol>
           </li>
-        </ul>
-      </div>
+        </transition-group>
+      </ul>
     </section>
     <section class="prog-lang">
       <h2>Programming Languages & Technologies</h2>
@@ -219,7 +222,6 @@ export default {
           } else {
             this.expanded = null;
           }
-
           break;
         case "mob":
           this.mobExpanded = !this.mobExpanded;
@@ -264,8 +266,10 @@ export default {
 .work-experience {
   ul {
     list-style-type: none;
+    position: relative;
+    height: 12rem;
 
-    > li {
+    #list-transition > li {
       margin-top: 1rem;
       cursor: pointer;
       overflow: hidden;
@@ -273,8 +277,12 @@ export default {
       transition: all 1s ease;
 
       &.expanded {
+        position: absolute;
+        top: -60px;
         height: auto;
         max-height: 230px;
+        transition: all 1s ease;
+        margin-left: 25%;
       }
 
       h3 {
@@ -283,6 +291,7 @@ export default {
       }
       p {
         margin: 1.5rem 0;
+        width: 50rem;
       }
     }
   }
@@ -296,5 +305,16 @@ export default {
     padding: 0px 50px;
     margin-left: -40px;
   }
+}
+
+.list-enter-active {
+  transition: all 1s;
+}
+.list-leave-active {
+  transition: all 1s;
+  position: absolute;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
