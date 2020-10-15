@@ -5,12 +5,12 @@
       <transition-group id="list-transition" name="list">
         <li
           :class="{
-            expanded: conExpanded,
-            hidden: expanded != null && expanded != 'con'
+            expanded: confetti.expanded,
+            hidden: shouldHide(confetti)
           }"
-          :key="`con`"
+          :key="confetti.name"
         >
-          <h3 @click="expand(`con`)">
+          <h3 @click="expand(confetti)">
             2019, Full Stack Web Developer - Confetti
           </h3>
           <p>
@@ -30,12 +30,12 @@
         </li>
         <li
           :class="{
-            expanded: mobExpanded,
-            hidden: expanded != null && expanded != 'mob'
+            expanded: mobfox.expanded,
+            hidden: shouldHide(mobfox)
           }"
-          :key="`mob`"
+          :key="mobfox.name"
         >
-          <h3 @click="expand(`mob`)">
+          <h3 @click="expand(mobfox)">
             2018 ~ 2019, Android SDK Developer - Market Group/Mobfox
           </h3>
           <p>
@@ -58,12 +58,12 @@
         </li>
         <li
           :class="{
-            expanded: matExpanded,
-            hidden: shouldHide('mat')
+            expanded: matomy.expanded,
+            hidden: shouldHide(matomy)
           }"
-          :key="`mat`"
+          :key="matomy.name"
         >
-          <h3 @click="expand(`mat`)">
+          <h3 @click="expand(matomy)">
             2016 ~ 2018, Developers Tech Support (Tier 2) - Matomy Media Group
           </h3>
           <p>
@@ -97,43 +97,21 @@
 export default {
   data() {
     return {
-      conExpanded: false,
-      mobExpanded: false,
-      matExpanded: false,
-      expanded: null
+      confetti: { name: "con", expanded: false },
+      mobfox: { name: "mob", expanded: false },
+      matomy: { name: "mat", expanded: false },
+      selected: null
     };
   },
   methods: {
-    expand(index) {
-      switch (index) {
-        case "con":
-          this.conExpanded = !this.conExpanded;
-          if (this.expanded == null) {
-            this.expanded = "con";
-          } else {
-            this.expanded = null;
-          }
-          break;
-        case "mob":
-          this.mobExpanded = !this.mobExpanded;
-          if (this.expanded == null) {
-            this.expanded = "mob";
-          } else {
-            this.expanded = null;
-          }
-          break;
-        case "mat":
-          this.matExpanded = !this.matExpanded;
-          if (this.expanded == null) {
-            this.expanded = "mat";
-          } else {
-            this.expanded = null;
-          }
-          break;
-      }
+    expand(exp) {
+      exp.expanded = !exp.expanded;
+      this.selected == null
+        ? (this.selected = exp.name)
+        : (this.selected = null);
     },
-    shouldHide(val) {
-      return this.expanded != null && this.expanded != val;
+    shouldHide(exp) {
+      return this.selected != null && this.selected != exp.name;
     }
   }
 };
@@ -201,9 +179,5 @@ export default {
 }
 .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
   opacity: 0;
-}
-
-.list-move {
-  transition: all 1s ease;
 }
 </style>
