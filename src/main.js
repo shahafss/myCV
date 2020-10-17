@@ -5,8 +5,10 @@ import router from "./router";
 
 Vue.use(VueRouter);
 
+/* eslint-disable no-new */
 new Vue({
   el: "#app",
   router,
   render: (h) => h(App),
 });
+
