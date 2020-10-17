@@ -137,7 +137,7 @@ export default {
         height: auto;
         max-height: 230px;
         transition: all 1s ease;
-        margin-left: 25%;
+        margin-left: 33.33%;
 
         h3 {
           background-color: #ccc;
