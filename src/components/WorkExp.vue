@@ -2,23 +2,24 @@
   <div class="work-experience">
     <h2>Work Experience</h2>
     <ul>
-      <transition-group id="list-transition" name="list">
+      <transition-group name="list">
         <li
+          class="exp-li"
           :class="{
             expanded: confetti.expanded,
             hidden: shouldHide(confetti)
           }"
           :key="confetti.name"
         >
-          <h3 @click="expand(confetti)">
-            2019, Full Stack Web Developer - Confetti
-          </h3>
+          <h3 @click="expand(confetti)">2019, Full Stack Web Developer - Confetti</h3>
           <p>
             In this young startup I had the opportunity to work side by side
             with brilliant developers who
             <br />have taught me a lot on web development - Client & Server
-            side. <br />In this role I have built many new features using VueJS
-            framework. <br />Areas of responsibility including:
+            side.
+            <br />In this role I have built many new features using VueJS
+            framework.
+            <br />Areas of responsibility including:
           </p>
           <ol>
             <li>Building new web app features in a VueJS framework</li>
@@ -29,43 +30,40 @@
           </ol>
         </li>
         <li
+          class="exp-li"
           :class="{
             expanded: mobfox.expanded,
             hidden: shouldHide(mobfox)
           }"
           :key="mobfox.name"
         >
-          <h3 @click="expand(mobfox)">
-            2018 ~ 2019, Android SDK Developer - Market Group/Mobfox
-          </h3>
+          <h3 @click="expand(mobfox)">2018 ~ 2019, Android SDK Developer - Market Group/Mobfox</h3>
           <p>
             As a part of the R&D team I’ve contributed to the development of the
             Android Ads SDK as well as the iOS SDK.
             <br />In this role I was responsible for building many new features,
             updating and maintaining existing ones, fixing issues, analysing and
-            improving performance. <br />Areas of responsibility including:
+            improving performance.
+            <br />Areas of responsibility including:
           </p>
           <ol>
             <li>Writing new features of SDK</li>
-            <li>
-              Building adapters to work with MoPub, AdMob, DFP and other Ad SDKs
-            </li>
-            <li>
-              Maintaining, updating and improving the SDK code and libraries
-            </li>
+            <li>Building adapters to work with MoPub, AdMob, DFP and other Ad SDKs</li>
+            <li>Maintaining, updating and improving the SDK code and libraries</li>
             <li>Tier 3 technical support</li>
           </ol>
         </li>
         <li
+          class="exp-li"
           :class="{
             expanded: matomy.expanded,
             hidden: shouldHide(matomy)
           }"
           :key="matomy.name"
         >
-          <h3 @click="expand(matomy)">
-            2016 ~ 2018, Developers Tech Support (Tier 2) - Matomy Media Group
-          </h3>
+          <h3
+            @click="expand(matomy)"
+          >2016 ~ 2018, Developers Tech Support (Tier 2) - Matomy Media Group</h3>
           <p>
             In this role I was required to help mobile app developers (Android,
             iOS, Web) implement SDKs into their applications, As well as
@@ -80,12 +78,8 @@
             </li>
             <li>Giving technical support through ticket system</li>
             <li>Personal support for clients through voice chat</li>
-            <li>
-              Analyzing clients technical issues and providing solutions
-            </li>
-            <li>
-              Writing full documentation of the SDK implementation process
-            </li>
+            <li>Analyzing clients technical issues and providing solutions</li>
+            <li>Writing full documentation of the SDK implementation process</li>
           </ol>
         </li>
       </transition-group>
@@ -124,7 +118,7 @@ export default {
     position: relative;
     height: 12rem;
 
-    #list-transition > li {
+    .exp-li {
       margin-top: 1rem;
       overflow: hidden;
       max-height: 28px;
