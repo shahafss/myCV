@@ -1,5 +1,8 @@
 <template>
-  <div class="work-experience">
+  <div
+    class="work-experience"
+    :class="{ 'container-expanded': selected != null }"
+  >
     <h2>Work Experience</h2>
     <ul>
       <transition-group name="list">
@@ -7,19 +10,19 @@
           class="exp-li"
           :class="{
             expanded: confetti.expanded,
-            hidden: shouldHide(confetti)
+            hidden: shouldHide(confetti),
           }"
           :key="confetti.name"
         >
-          <h3 @click="expand(confetti)">2019, Full Stack Web Developer - Confetti</h3>
+          <h3 @click="expand(confetti)">
+            2019, Full Stack Web Developer - Confetti
+          </h3>
           <p>
             In this young startup I had the opportunity to work side by side
             with brilliant developers who
             <br />have taught me a lot on web development - Client & Server
-            side.
-            <br />In this role I have built many new features using VueJS
-            framework.
-            <br />Areas of responsibility including:
+            side. <br />In this role I have built many new features using VueJS
+            framework. <br />Areas of responsibility including:
           </p>
           <ol>
             <li>Building new web app features in a VueJS framework</li>
@@ -33,23 +36,28 @@
           class="exp-li"
           :class="{
             expanded: mobfox.expanded,
-            hidden: shouldHide(mobfox)
+            hidden: shouldHide(mobfox),
           }"
           :key="mobfox.name"
         >
-          <h3 @click="expand(mobfox)">2018 ~ 2019, Android SDK Developer - Market Group/Mobfox</h3>
+          <h3 @click="expand(mobfox)">
+            2018 ~ 2019, Android SDK Developer - Market Group/Mobfox
+          </h3>
           <p>
             As a part of the R&D team I’ve contributed to the development of the
             Android Ads SDK as well as the iOS SDK.
             <br />In this role I was responsible for building many new features,
             updating and maintaining existing ones, fixing issues, analysing and
-            improving performance.
-            <br />Areas of responsibility including:
+            improving performance. <br />Areas of responsibility including:
           </p>
           <ol>
             <li>Writing new features of SDK</li>
-            <li>Building adapters to work with MoPub, AdMob, DFP and other Ad SDKs</li>
-            <li>Maintaining, updating and improving the SDK code and libraries</li>
+            <li>
+              Building adapters to work with MoPub, AdMob, DFP and other Ad SDKs
+            </li>
+            <li>
+              Maintaining, updating and improving the SDK code and libraries
+            </li>
             <li>Tier 3 technical support</li>
           </ol>
         </li>
@@ -57,13 +65,13 @@
           class="exp-li"
           :class="{
             expanded: matomy.expanded,
-            hidden: shouldHide(matomy)
+            hidden: shouldHide(matomy),
           }"
           :key="matomy.name"
         >
-          <h3
-            @click="expand(matomy)"
-          >2016 ~ 2018, Developers Tech Support (Tier 2) - Matomy Media Group</h3>
+          <h3 @click="expand(matomy)">
+            2016 ~ 2018, Developers Tech Support (Tier 2) - Matomy Media Group
+          </h3>
           <p>
             In this role I was required to help mobile app developers (Android,
             iOS, Web) implement SDKs into their applications, As well as
@@ -79,7 +87,9 @@
             <li>Giving technical support through ticket system</li>
             <li>Personal support for clients through voice chat</li>
             <li>Analyzing clients technical issues and providing solutions</li>
-            <li>Writing full documentation of the SDK implementation process</li>
+            <li>
+              Writing full documentation of the SDK implementation process
+            </li>
           </ol>
         </li>
       </transition-group>
@@ -94,7 +104,7 @@ export default {
       confetti: { name: "con", expanded: false },
       mobfox: { name: "mob", expanded: false },
       matomy: { name: "mat", expanded: false },
-      selected: null
+      selected: null,
     };
   },
   methods: {
@@ -106,13 +116,15 @@ export default {
     },
     shouldHide(exp) {
       return this.selected != null && this.selected != exp.name;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .work-experience {
+  height: 14rem;
+  transition: all 0.6s ease;
   ul {
     list-style-type: none;
     position: relative;
@@ -122,14 +134,14 @@ export default {
       margin-top: 1rem;
       overflow: hidden;
       max-height: 28px;
-      transition: all 1s ease;
+      transition: all 0.6s ease;
       position: relative;
 
       &.expanded {
         position: absolute;
         top: -60px;
         height: auto;
-        max-height: 230px;
+        max-height: 300px;
         transition: all 1s ease;
         margin-left: 33.33%;
 
@@ -139,6 +151,7 @@ export default {
       }
 
       &.hidden {
+        position: fixed;
         pointer-events: none;
         opacity: 0;
         margin-left: -10rem;
@@ -158,8 +171,46 @@ export default {
       }
       p {
         margin: 1rem 0;
-        width: 50rem;
       }
+    }
+  }
+}
+
+@media (max-width: 980px) {
+  .container-expanded {
+    height: 24rem;
+  }
+  ul {
+    padding-left: 0 !important;
+
+    .exp-li:first-of-type {
+      max-height: 28px;
+      margin-top: 0.5rem !important;
+      &.expanded {
+        margin: 0 !important;
+        top: unset !important;
+        height: auto !important;
+        max-height: 360px !important;
+      }
+    }
+
+    .exp-li:not(:first-of-type) {
+      max-height: 50px !important;
+      margin-top: 0.5rem !important;
+      &.expanded {
+        margin: 0 !important;
+        top: 0 !important;
+        height: auto !important;
+        max-height: 360px !important;
+      }
+    }
+    .hidden {
+      opacity: 0 !important;
+      margin: unset !important;
+    }
+
+    h3 {
+      max-width: 23rem !important;
     }
   }
 }
