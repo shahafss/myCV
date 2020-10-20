@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <section class="headline-container">
       <img class="cv-image" src="../assets/resumeImage.png" />
       <div class="headline-body">
@@ -9,7 +9,7 @@
             Front-End Web Developer
             <br />Over 3 years of experience developing Mobile & Web
             applications <br />Eager to learn. Able to grasp new concepts
-            quickly and eciently <br />Fluent in English, excellent
+            quickly and efficiently <br />Fluent in English, excellent
             communication skills
           </p>
           <p>
@@ -29,44 +29,22 @@
         <div class="col">
           <hr />
           <ul>
-            <li>
-              Javascript(ES6)
-            </li>
-            <li>
-              HTML5
-            </li>
-            <li>
-              CSS3
-            </li>
-            <li>
-              TypeScript
-            </li>
-            <li>
-              Java
-            </li>
-            <li>
-              XML
-            </li>
-            <li>
-              JSON
-            </li>
+            <li>Javascript(ES6)</li>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>TypeScript</li>
+            <li>Java</li>
+            <li>XML</li>
+            <li>JSON</li>
           </ul>
         </div>
         <div class="col">
           <hr />
           <ul>
-            <li>
-              VueJS
-            </li>
-            <li>
-              NodeJS
-            </li>
-            <li>
-              Android Studio
-            </li>
-            <li>
-              Git
-            </li>
+            <li>VueJS</li>
+            <li>NodeJS</li>
+            <li>Android Studio</li>
+            <li>Git</li>
           </ul>
         </div>
       </div>
@@ -81,37 +59,23 @@
             <li>
               Hands on experience developing Vue.js SPA - Vuex, Nuxt.js, Axios
             </li>
-            <li>
-              Well versed in Javascript ES6, HTML5 & CSS3.
-            </li>
-            <li>
-              Experience with NodeJS & express as a server
-            </li>
-            <li>
-              Experience with Redis, Mongo and other noSQL databases.
-            </li>
+            <li>Well versed in Javascript ES6, HTML5 & CSS3.</li>
+            <li>Experience with NodeJS & express as a server</li>
+            <li>Experience with Redis, Mongo and other noSQL databases.</li>
           </ul>
         </div>
         <div class="col">
           <hr />
           <h3>Mobile Development</h3>
           <ul>
-            <li>
-              2+ years of experience developing Java applications & SDK.
-            </li>
+            <li>2+ years of experience developing Java applications & SDK.</li>
             <li>
               Experience building an app from scratch and publishing to the
               store.
             </li>
-            <li>
-              Experience with integrating 3rd party dependencies
-            </li>
-            <li>
-              Experience with Google Location Services & Firebase
-            </li>
-            <li>
-              Graduated from John-Bryce Android development course
-            </li>
+            <li>Experience with integrating 3rd party dependencies</li>
+            <li>Experience with Google Location Services & Firebase</li>
+            <li>Graduated from John-Bryce Android development course</li>
           </ul>
         </div>
       </div>
@@ -126,8 +90,8 @@ export default {
     return {};
   },
   components: {
-    WorkExp
-  }
+    WorkExp,
+  },
 };
 </script>
 
@@ -136,8 +100,10 @@ export default {
   display: flex;
 
   .cv-image {
-    height: 12rem;
-    width: 12rem;
+    max-height: 12rem;
+    max-width: 12rem;
+    height: 100%;
+    width: 100%;
     border-radius: 100px;
     overflow: hidden;
   }
@@ -150,12 +116,18 @@ export default {
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: 350px 350px;
+  display: flex;
 
   .col {
-    padding: 0px 50px;
-    margin-left: -40px;
+    width: 350px;
+    padding: 0px 40px;
+  }
+}
+// @media (max-width: 760px) {
+// }
+@media (max-width: 480px) {
+  .col {
+    padding: 0 3px !important;
   }
 }
 </style>
