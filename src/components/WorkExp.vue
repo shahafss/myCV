@@ -123,8 +123,11 @@ export default {
 
 <style lang="scss" scoped>
 .work-experience {
-  height: 14rem;
+  height: 12rem;
   transition: all 0.6s ease;
+  .container-expanded {
+    height: 15rem;
+  }
   ul {
     list-style-type: none;
     position: relative;
@@ -134,16 +137,17 @@ export default {
       margin-top: 1rem;
       overflow: hidden;
       max-height: 28px;
+      max-width: 600px;
       transition: all 0.6s ease;
       position: relative;
 
       &.expanded {
         position: absolute;
-        top: -60px;
+        top: -62px;
         height: auto;
         max-height: 300px;
-        transition: all 1s ease;
-        margin-left: 33.33%;
+        transition: all 0.6s ease;
+        margin-left: 15%;
 
         h3 {
           background-color: #ccc;
@@ -178,10 +182,11 @@ export default {
 
 @media (max-width: 980px) {
   .container-expanded {
-    height: 24rem;
+    height: 23rem !important;
   }
   ul {
     padding-left: 0 !important;
+    white-space: break-spaces;
 
     .exp-li:first-of-type {
       max-height: 28px;

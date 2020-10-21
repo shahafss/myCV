@@ -9,12 +9,19 @@
             Front-End Web Developer
             <br />Over 3 years of experience developing Mobile & Web
             applications <br />Eager to learn. Able to grasp new concepts
-            quickly and efficiently <br />Fluent in English, excellent
+            quickly and efficiently <br />Fluent English, excellent
             communication skills
           </p>
           <p>
-            Shahaf.ssh@gmail.com
-            <br />052-6810410 <br />Binyamina, Israel
+            <a href="mailto:shahaf.ssh@gmail.com">Shahaf.ssh@gmail.com</a>
+            <br />
+            <a href="tel:052-6810410">052-6810410</a>
+            <br /><a
+              href="http://maps.google.com/maps?q=Binyamina,Israel"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Binyamina, Israel</a
+            >
           </p>
         </div>
       </div>
@@ -98,6 +105,11 @@ export default {
 <style lang="scss" scoped>
 .headline-container {
   display: flex;
+  line-height: 1.3rem;
+
+  a {
+    color: #42b883;
+  }
 
   .cv-image {
     max-height: 12rem;
@@ -121,13 +133,13 @@ export default {
   .col {
     width: 350px;
     padding: 0px 40px;
+    line-height: 1.3rem;
   }
 }
-// @media (max-width: 760px) {
-// }
 @media (max-width: 480px) {
   .col {
     padding: 0 3px !important;
+    line-height: 1.5rem !important;
   }
 }
 </style>
