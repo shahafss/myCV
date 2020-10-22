@@ -105,7 +105,6 @@ export default {
 <style lang="scss" scoped>
 .headline-container {
   display: flex;
-  line-height: 1.3rem;
 
   a {
     color: #42b883;
@@ -133,7 +132,6 @@ export default {
   .col {
     width: 350px;
     padding: 0px 40px;
-    line-height: 1.3rem;
   }
 }
 @media (max-width: 480px) {

@@ -6,4 +6,8 @@
 export default {};
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+body {
+  line-height: 1.3rem;
+}
+</style>

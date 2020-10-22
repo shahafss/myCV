@@ -1,7 +1,7 @@
 <template>
   <div
     class="work-experience"
-    :class="{ 'container-expanded': selected != null }"
+    :class="{ 'container-expanded': selected && selected.value == null }"
   >
     <h2>Work Experience</h2>
     <ul>
@@ -86,7 +86,9 @@
             </li>
             <li>Giving technical support through ticket system</li>
             <li>Personal support for clients through voice chat</li>
-            <li>Analyzing clients technical issues and providing solutions</li>
+            <li>
+              Analyzing clients technical issues and providing solutions
+            </li>
             <li>
               Writing full documentation of the SDK implementation process
             </li>
@@ -98,25 +100,32 @@
 </template>
 
 <script>
+import { ref } from "vue";
 export default {
-  data() {
-    return {
-      confetti: { name: "con", expanded: false },
-      mobfox: { name: "mob", expanded: false },
-      matomy: { name: "mat", expanded: false },
-      selected: null,
-    };
-  },
-  methods: {
-    expand(exp) {
+  setup() {
+    const confetti = ref({ name: "con", expanded: false });
+    const mobfox = ref({ name: "mob", expanded: false });
+    const matomy = ref({ name: "mat", expanded: false });
+    let selected = ref(null);
+
+    const expand = (exp) => {
       exp.expanded = !exp.expanded;
-      this.selected == null
-        ? (this.selected = exp.name)
-        : (this.selected = null);
-    },
-    shouldHide(exp) {
-      return this.selected != null && this.selected != exp.name;
-    },
+      selected.value == null
+        ? (selected.value = exp.name)
+        : (selected.value = null);
+    };
+
+    const shouldHide = (exp) =>
+      selected.value != null && selected.value != exp.name;
+
+    return {
+      confetti: confetti,
+      mobfox: mobfox,
+      matomy: matomy,
+      expand: expand,
+      selected: selected,
+      shouldHide: shouldHide,
+    };
   },
 };
 </script>
