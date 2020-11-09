@@ -132,30 +132,23 @@ export default {
 
 <style lang="scss" scoped>
 .work-experience {
-  height: 12rem;
-  transition: all 0.6s ease;
-  .container-expanded {
-    height: 15rem;
-  }
   ul {
     list-style-type: none;
     position: relative;
-    height: 12rem;
 
     .exp-li {
+      white-space: pre-line;
       margin-top: 1rem;
       overflow: hidden;
-      max-height: 28px;
-      max-width: 600px;
-      transition: all 0.6s ease;
+      max-height: 30px;
+      transition: all 1s ease;
       position: relative;
 
       &.expanded {
-        position: absolute;
-        top: -62px;
-        height: auto;
-        max-height: 300px;
-        transition: all 0.6s ease;
+        position: relative;
+        top: -40px;
+        max-height: 1000px;
+        transition: all 1s ease;
         margin-left: 15%;
 
         h3 {
@@ -190,42 +183,33 @@ export default {
 }
 
 @media (max-width: 980px) {
-  .container-expanded {
-    height: 23rem !important;
-  }
   ul {
     padding-left: 0 !important;
     white-space: break-spaces;
 
-    .exp-li:first-of-type {
-      max-height: 28px;
+    .exp-li {
+      position: relative;
       margin-top: 0.5rem !important;
+      white-space: nowrap;
       &.expanded {
-        margin: 0 !important;
-        top: unset !important;
-        height: auto !important;
-        max-height: 360px !important;
-      }
-    }
-
-    .exp-li:not(:first-of-type) {
-      max-height: 50px !important;
-      margin-top: 0.5rem !important;
-      &.expanded {
+        position: relative !important;
         margin: 0 !important;
         top: 0 !important;
         height: auto !important;
-        max-height: 360px !important;
+        max-height: 1000px !important;
       }
     }
     .hidden {
       opacity: 0 !important;
       margin: unset !important;
     }
+  }
+}
 
-    h3 {
-      max-width: 23rem !important;
-    }
+@media (max-width: 600px) {
+  .exp-li {
+    max-height: 45px !important;
+    white-space: pre-line !important;
   }
 }
 
