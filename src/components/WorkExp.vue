@@ -191,12 +191,19 @@ export default {
       position: relative;
       margin-top: 0.5rem !important;
       white-space: nowrap;
+
       &.expanded {
         position: relative !important;
         margin: 0 !important;
         top: 0 !important;
         height: auto !important;
         max-height: 1000px !important;
+        h3 {
+          background-color: #ccc !important;
+        }
+      }
+      h3 {
+        background-color: transparent !important;
       }
     }
     .hidden {
